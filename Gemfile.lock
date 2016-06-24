@@ -1,3 +1,9 @@
+PATH
+  remote: ../govuk-frontend-tool-prototype/frontend_tool
+  specs:
+    frontend_tool (0.0.1)
+      rails (~> 4.2.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -85,11 +91,6 @@ GEM
     govuk-lint (0.6.1)
       rubocop (~> 0.35.0)
       scss_lint (~> 0.44.0)
-    govuk_frontend_toolkit (4.12.0)
-      rails (>= 3.1.0)
-      sass (>= 3.2.0)
-    govuk_template (0.17.3)
-      rails (>= 3.1)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -253,11 +254,10 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara (~> 2.5.0)
+  frontend_tool!
   gds-api-adapters (= 26.7.0)
   govuk-content-schema-test-helpers (~> 1.4)
   govuk-lint (~> 0.6.0)
-  govuk_frontend_toolkit (~> 4.12.0)
-  govuk_template (= 0.17.3)
   image_optim (= 0.17.1)
   jasmine-rails (~> 0.10.6)
   logstasher (= 0.4.8)
