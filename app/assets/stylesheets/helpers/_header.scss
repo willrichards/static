@@ -1,4 +1,5 @@
-@import '_shims';
+@import 'frontend_tool/tools/shims';
+
 #global-header {
   .header-wrapper .header-global .site-search {
     @extend %contain-floats;

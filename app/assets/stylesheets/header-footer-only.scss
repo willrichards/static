@@ -1,12 +1,13 @@
 /* govuk_frontend_toolkit includes */
-@import "colours";
-@import "conditionals";
-@import "css3";
-@import "device-pixels";
-@import "grid_layout";
-@import "measurements";
-@import "typography";
-@import "design-patterns/buttons";
+@import "frontend_tool/settings/colours";
+@import "frontend_tool/settings/measurements";
+@import "frontend_tool/tools/conditionals";
+@import "frontend_tool/tools/css3";
+@import "frontend_tool/tools/device-pixels";
+@import "frontend_tool/tools/grid_layout";
+
+@import "frontend_tool/tools/typography";
+@import "frontend_tool/components/buttons";
 
 /* local styleguide includes */
 @import "styleguide/conditionals2";

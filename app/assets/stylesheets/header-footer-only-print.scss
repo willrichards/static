@@ -7,9 +7,9 @@
 $is-print: true;
 
 // govuk_frontend_toolkit includes
-@import "colours";
-@import "typography";
-@import "measurements.scss";
+@import "frontend_tool/settings/colours";
+@import "frontend_tool/settings/measurements";
+@import "frontend_tool/tools/typography";
 
 // local styleguide includes
 @import "styleguide/print";
