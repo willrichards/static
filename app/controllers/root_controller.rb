@@ -44,7 +44,7 @@ class RootController < ApplicationController
     if NON_LAYOUT_TEMPLATES.include?(params[:template])
       render :action => params[:template]
     else
-      render :action => params[:template], :layout => 'govuk_template'
+      render :action => params[:template], :layout => 'frontend_tool/govuk_template'
     end
   end
 
