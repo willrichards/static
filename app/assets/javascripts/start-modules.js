@@ -1,4 +1,4 @@
-//= require govuk/modules
+//= require frontend_tool/govuk/modules
 //= require modules/sticky-element-container
 //= require modules/toggle
 

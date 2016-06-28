@@ -1,5 +1,5 @@
 //= require libs/jquery/jquery-ui-1.10.2.custom
-//= require vendor/jquery/jquery.player.min
+//= require frontend_tool/vendor/jquery/jquery.player.min
 
 (function ($) {
   "use strict";
