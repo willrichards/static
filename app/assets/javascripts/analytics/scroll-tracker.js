@@ -1,3 +1,5 @@
+//= require libs/jquery/plugins/jquery.ba-throttle-debounce
+
 (function() {
   "use strict";
 
@@ -40,7 +42,7 @@
 
   function ScrollTracker(sitewideConfig) {
     this.config = this.getConfigForCurrentPath(sitewideConfig);
-    this.SCROLL_TIMEOUT_DELAY = 10;
+    this.SCROLL_TIMEOUT_DELAY = 500;
 
     if ( !this.config ) {
       this.enabled = false;
@@ -50,7 +52,9 @@
 
     this.trackedNodes = this.buildNodes(this.config);
 
-    $(window).scroll($.proxy(this.onScroll, this));
+    $(window).scroll(
+      $.throttle(this.SCROLL_TIMEOUT_DELAY, this.trackVisibleNodes.bind(this))
+    );
     this.trackVisibleNodes();
   };
 
@@ -77,11 +81,6 @@
 
   ScrollTracker.prototype.normalisePath = function (path){
     return path.split("/").join("");
-  };
-
-  ScrollTracker.prototype.onScroll = function () {
-    clearTimeout(this.scrollTimeout);
-    this.scrollTimeout = setTimeout($.proxy(this.trackVisibleNodes, this), this.SCROLL_TIMEOUT_DELAY);
   };
 
   ScrollTracker.prototype.trackVisibleNodes = function () {
