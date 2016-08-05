@@ -1,0 +1,9 @@
+---
+applications:
+- name: govuk-static
+  domain: paas.dev.publishing.service.gov.uk
+  command: ./startup.sh
+  env:
+   GOVUK_ASSET_ROOT: "https://assets.publishing.service.gov.uk"  
+   GOVUK_WEBSITE_ROOT: "https://www.gov.uk"
+   GOVUK_APP_DOMAIN: "cloudapps.digitali"
