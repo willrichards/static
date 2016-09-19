@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: static
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: foobars
+    spec:
+      containers:
+      - name: static
+        image: govuk-static-test:2016-09-26-1526
+        ports:
+        - containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
