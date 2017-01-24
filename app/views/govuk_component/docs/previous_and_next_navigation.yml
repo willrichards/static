@@ -31,6 +31,16 @@ fixtures:
       url: next-page
       title: Next page
       label: 3 of 3
+  basic_rtl:
+    direction: rtl
+    previous_page:
+      url: previous-page
+      title: الصفحة السابقة
+      label: 1 من 3
+    next_page:
+      url: next-page
+      title: الصفحة التالية
+      label: 3 من 3
   both_previous_and_next_no_labels:
     previous_page:
       url: previous-page

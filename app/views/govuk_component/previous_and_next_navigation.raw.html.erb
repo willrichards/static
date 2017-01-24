@@ -1,14 +1,33 @@
+<%
+  direction_class = ""
+  direction_class = " direction-#{direction}" if local_assigns.include?(:direction)
+%>
 <% if local_assigns.include?(:next_page) || local_assigns.include?(:previous_page) %>
 <nav
+  <% if local_assigns.include?(:direction) %>
+    dir="rtl"
+  <% end %>
   class="govuk-previous-and-next-navigation"
   role="navigation"
   aria-label="<%= t("govuk_component.previous_and_next_navigation.pagination", default: "Pagination") %>"
 >
-  <ul class="group">
+  <ul>
     <% if local_assigns.include?(:previous_page) %>
       <li class="previous-page">
-        <a href="<%= previous_page[:url] %>" rel="prev" >
-          <span class="pagination-part-title"><%= previous_page[:title] %></span>
+        <a href="<%= previous_page[:url] %>" rel="prev">
+          <span class="pagination-part-title">
+            <svg
+              aria-hidden="true"
+              class="pagination-part-title-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="11.2"
+              height="18"
+              viewBox="0 0 11.2 18"
+            >
+              <path fill="currentColor" d="M0 9l9 9 2-2-6.8-7 7-7-2-2"/>
+            </svg>
+            <%= previous_page[:title] %>
+          </span>
           <span class="pagination-label"><%= previous_page[:label] %></span>
         </a>
       </li>
@@ -16,7 +35,19 @@
     <% if local_assigns.include?(:next_page) %>
       <li class="next-page">
         <a href="<%= next_page[:url] %>" rel="next">
-          <span class="pagination-part-title"><%= next_page[:title] %></span>
+          <span class="pagination-part-title">
+            <%= next_page[:title] %>
+            <svg
+              aria-hidden="true"
+              class="pagination-part-title-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="11.2"
+              height="18"
+              viewBox="0 0 11.2 18"
+            >
+              <path fill="currentColor" d="M0 16l2 2 9.2-9-9-9-2 2L7 9"/>
+            </svg>
+          </span>
           <span class="pagination-label"><%= next_page[:label] %></span>
         </a>
       </li>

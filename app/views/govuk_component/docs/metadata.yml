@@ -26,6 +26,11 @@ fixtures:
       - <a href='/government/topics/arts-and-culture'>Arts and culture</a>
       - <a href='/government/topics/sports-and-leisure'>Sports and leisure</a>
       Applies to: England
+  line_length_tolerances:
+    other:
+      Kinda medium length: Not too long.
+      Really long to test max text tolerances: Also really long sorry! I wonder if this should be lorem ipsum?
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ante orci, venenatis at ex id, mollis ultricies nibh. Proin ac massa eget sapien interdum: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ante orci, venenatis at ex id, mollis ultricies nibh. Proin ac massa eget sapien interdum
   basic_rtl:
     direction: rtl
     from: <a href='/government/organisations/cabinet-office'>Cabinet Office</a>
