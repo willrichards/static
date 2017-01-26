@@ -1,5 +1,5 @@
 .govuk-metadata {
-  @include core-16;
+  @include core-16($line-height: 1.75);
   @include responsive-bottom-margin;
   @extend %contain-floats;
 
@@ -12,7 +12,7 @@
     float: left;
     clear: left;
     width: auto;
-    min-width: 160px !important;
+    min-width: 180px !important;
 
     padding-right: $gutter-one-third;
   }
@@ -30,12 +30,15 @@
   dd {
     float: left;
     width: 55%;
-    @include bold-19($line-height: 1.25);
-    margin-bottom: 10px;
+    @include bold-19($line-height: 1.75);
 
     @include media(tablet) {
       width: 70%;
     }
+  }
+
+  dd a {
+    text-decoration: none;
   }
 
   dd:last-child {
