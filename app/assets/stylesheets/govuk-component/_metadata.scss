@@ -1,5 +1,5 @@
 .govuk-metadata {
-  @include core-16($line-height: 1.75);
+  @include core-16($line-height: 1.5);
   @include responsive-bottom-margin;
   @extend %contain-floats;
 
@@ -30,11 +30,12 @@
   dd {
     float: left;
     width: 55%;
-    @include bold-19($line-height: 1.75);
+    @include bold-19($line-height: 1.5);
 
     @include media(tablet) {
       width: 70%;
     }
+    margin-bottom: 10px;
   }
 
   dd a {

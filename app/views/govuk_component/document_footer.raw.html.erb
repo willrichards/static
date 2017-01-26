@@ -14,37 +14,44 @@
 
   direction_class = ""
   direction_class = " direction-#{direction}" if local_assigns.include?(:direction)
+
+  require 'securerandom'
+
+  uuid = SecureRandom.uuid
 %>
 <div class="govuk-document-footer<%= direction_class %>">
   <h2 class="visuallyhidden">
     <%= t("govuk_component.document_footer.document_information", default: "Document information") %>
   </h2>
-  <div class="history-information" id="history">
-    <% if local_assigns.include?(:published) && published %>
-      <p>
-        <%= t("govuk_component.document_footer.published", default: "Published") %>:
-        <span class="published definition"><%= published %></span>
-      </p>
-    <% end %>
-    <% if local_assigns.include?(:updated) && updated %>
-      <p>
-        <%= t("govuk_component.document_footer.updated", default: "Updated") %>:
-        <span class="updated definition"><%= updated %></span>
-      </p>
-    <% end %>
-    <% if other_dates.present? %>
-      <% other_dates.each do |title, date| %>
-        <p><%= title %>: <span class="other-date definition"><%= date %></span></p>
+  <div class="history-information" id="history-<%= uuid %>">
+    <dl>
+      <% if local_assigns.include?(:published) && published %>
+        <dt>
+          <%= t("govuk_component.document_footer.published", default: "Published") %>:
+        </dt>
+        <dd class="published definition"><%= published %></dd>
       <% end %>
-    <% end %>
+      <% if local_assigns.include?(:updated) && updated %>
+        <dt>
+          <%= t("govuk_component.document_footer.updated", default: "Updated") %>:
+        </dt>
+        <dd class="updated definition"><%= updated %></dd>
+      <% end %>
+      <% if other_dates.present? %>
+        <% other_dates.each do |title, date| %>
+          <dt><%= title %>:</dt>
+          <dd class="other-date definition"><%= date %></dd>
+        <% end %>
+      <% end %>
+    </dl>
     <% if history.any? %>
       <div class="change-notes" data-module="toggle">
         <p>
-          <a href="#full-history" data-controls="full-history" data-expanded="false">
+          <a href="#full-history-<%= uuid %>" data-controls="full-history-<%= uuid %>" data-expanded="false">
             + <%= t("govuk_component.document_footer.full_page_history", default: "full page history") %>
           </a>
         </p>
-        <div class="js-hidden" id="full-history"><span class="arrow"></span>
+        <div class="js-hidden" id="full-history-<%= uuid %>"><span class="arrow"></span>
           <ol>
             <% history.each do |change| %>
               <li>
@@ -58,42 +65,47 @@
     <% end %>
   </div>
   <div class="related-information">
-    <% if from.any? %>
-      <p>From: <span class="from">
-        <% from.each do |definition| %>
+    <dl>
+      <% if from.any? %>
+        <dt>From:</dt>
+        <dd>
+          <% from.each do |definition| %>
+            <span class="definition">
+              <%= definition.html_safe %>
+            </span>
+          <% end %>
+        </dd>
+      <% end %>
+      <% if part_of.any? %>
+        <dt>
+          <%= t("govuk_component.document_footer.part_of", default: "Part of") %>:
+        </dt>
+        <dd>
+          <% part_of.each do |definition| %>
           <span class="definition">
             <%= definition.html_safe %>
           </span>
-        <% end %>
-      </p>
-    <% end %>
-    <% if part_of.any? %>
-      <p>
-        <%= t("govuk_component.document_footer.part_of", default: "Part of") %>:
-        <span class="part-of">
-        <% part_of.each do |definition| %>
-        <span class="definition">
-          <%= definition.html_safe %>
-        </span>
-        <% end %>
-      </p>
-    <% end %>
-    <% if other.present? %>
-      <% other.each do |title, definitions| %>
-        <%
-          definitions ||= []
-          definitions = Array(definitions)
-        %>
-        <% if definitions.any? %>
-          <p><%= title %>: <span class="other">
-            <% definitions.each do |definition| %>
-              <span class="definition">
-                <%= definition.html_safe %>
-              </span>
-            <% end %>
-          </span></p>
+          <% end %>
+        </dd>
+      <% end %>
+      <% if other.present? %>
+        <% other.each do |title, definitions| %>
+          <%
+            definitions ||= []
+            definitions = Array(definitions)
+          %>
+          <% if definitions.any? %>
+            <dt><%= title %>:</dt>
+            <dd>
+              <% definitions.each do |definition| %>
+                <span class="definition">
+                  <%= definition.html_safe %>
+                </span>
+              <% end %>
+            </dd>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </dl>
   </div>
 </div>
