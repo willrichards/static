@@ -1,0 +1,42 @@
+.govuk-contents-list {
+  &__item {
+    list-style: none;
+    font-weight: bold;
+    border-top: 1px solid #d3d2d5;
+    &:first-child {
+      border-top: none;
+    }
+  }
+  &__link {
+    display: block;
+    padding-top: 7.5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+  }
+
+  & & {
+    border-top: 1px solid #d3d2d5;
+  }
+
+  &__item--level-2,
+  &__item--level-3 {
+    font-weight: normal;
+  }
+
+  &__item--level-3:last-child {
+    border-bottom: none;
+  }
+
+  &__item--level-3 {
+    border: none;
+  }
+
+  &__item--level-3 &__link {
+    padding-left: 1.5em;
+    &:before {
+      content: "\2014";
+      float: left;
+      margin-left: -1.5em;
+    }
+  }
+}

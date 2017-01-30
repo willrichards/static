@@ -1,0 +1,22 @@
+<% if local_assigns[:items] && !items.blank? %>
+  <ol class="govuk-contents-list">
+    <% items.each do |item| %>
+      <li
+        class="
+          govuk-contents-list__item
+          <% if item[:level] %>
+            govuk-contents-list__item--level-<%= item[:level] %>
+          <% end %>
+        "
+      >
+        <a
+          href='<%= item[:href] %>'
+          class="govuk-contents-list__link"
+        ><%= item[:text] %></a>
+        <% if item[:items].present? %>
+          <%= render 'govuk_component/contents_list', items: item[:items] %>
+        <% end %>
+       </li>
+    <% end %>
+  </ol>
+<% end %>

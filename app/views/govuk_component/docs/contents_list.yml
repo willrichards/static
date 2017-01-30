@@ -1,0 +1,16 @@
+name: Contents List
+description: Side navigation pattern for linking into sections of a document
+fixtures:
+  default:
+    items:
+      - text: 'Level 1'
+        href: '#'
+        level: 1
+        items:
+          - text: 'Level 2'
+            href: '#'
+            level: 2
+            items:
+              - text: 'Level 3'
+                href: '#'
+                level: 3
