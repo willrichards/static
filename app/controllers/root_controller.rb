@@ -30,6 +30,7 @@ class RootController < ApplicationController
   end
 
   def govuk_locales
+    params[:locale] = "en" if params[:locale] == "en-GB"
     return error_404 unless params[:locale].match(/^[a-z]{2}(-[a-z0-9]{2,3})?$/)
     locale_file_path = Rails.root.join("config", "locales", "#{params[:locale]}.yml")
     render_yaml_as_json(locale_file_path)
