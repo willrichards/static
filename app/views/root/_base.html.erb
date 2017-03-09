@@ -23,7 +23,33 @@
 <% end %>
 
 <% content_for :after_header do %>
-  <div id="user-satisfaction-survey-container"></div>
+  <div id="user-satisfaction-survey-container">
+    <section
+       class="user-satisfaction-survey default"
+       aria-hidden="true"
+       data-identifier="user_satisfaction_survey"
+       data-frequency="1">
+      <div class="wrapper">
+        <h1>Tell us what you think of GOV.UK</h1>
+        <p class="right"><a href="#survey-no-thanks" class="survey-no-thanks">No thanks</a></p>
+        <p><a href="https://www.surveymonkey.co.uk/r/6QC8RV8" class="take-survey" target="_blank" rel="noopener noreferrer">Take the 3 minute survey</a> This will open a short survey on another website</p>
+      </div>
+    </section>
+
+    <section
+      class="user-satisfaction-survey"
+      aria-hidden="true"
+      data-identifier="environment_survey"
+      data-frequency="50"
+      data-start-date="March 9, 2017"
+      data-end-date="March 20, 2017"
+      data-sections="environment outdoor"
+      data-organisation-tags="<D7> <EA199> <EA1079> <EA53> <EA58> <EA60> <PB57> <PB202>"
+      data-breadcrumbs="Environment"
+      data-paths="environment"
+      >
+    </section>
+  </div>
   <% if @banner_notification.present? %>
     <%= @banner_notification %>
   <% end %>
