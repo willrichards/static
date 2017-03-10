@@ -15,7 +15,7 @@
   };
 
   ReportAProblem.prototype.addToggleLink = function() {
-    this.$container.before('<div class="report-a-problem-toggle-wrapper js-footer">' +
+    this.$container.before('<div class="js-footer">' +
         '<p class="report-a-problem-toggle">' +
           '<a href="" class="js-report-a-problem-toggle">Is there anything wrong with this page?</a>' +
         '</p>' +
