@@ -8,6 +8,7 @@
     <% if local_assigns.include?(:previous_page) %>
       <li class="previous-page">
         <a href="<%= previous_page[:url] %>" rel="prev" >
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 16.695021 13.101862"><g stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd"><path d="M7.309.707L1.414 6.601l5.794 5.794"/><path d="M2.22 6.707h13.475" stroke-linecap="square"/></g></svg>
           <span class="pagination-part-title"><%= previous_page[:title] %></span>
           <span class="pagination-label"><%= previous_page[:label] %></span>
         </a>
@@ -16,6 +17,7 @@
     <% if local_assigns.include?(:next_page) %>
       <li class="next-page">
         <a href="<%= next_page[:url] %>" rel="next">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 16.695021 13.101862"><g stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd"><path d="M9.386.707l5.895 5.894-5.793 5.794"/><path d="M14.476 6.707H1" stroke-linecap="square"/></g></svg>
           <span class="pagination-part-title"><%= next_page[:title] %></span>
           <span class="pagination-label"><%= next_page[:label] %></span>
         </a>

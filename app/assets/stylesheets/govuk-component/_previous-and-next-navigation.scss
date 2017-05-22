@@ -39,24 +39,18 @@
 
     }
 
-    &.next-page a:before,
-    &.previous-page a:before {
-      margin-top: -4px;
-      display: block;
-      width: 30px;
-      height: 38px;
-      content: " ";
+    &.next-page .icon,
+    &.previous-page .icon {
+      margin-top: 8px;
     }
 
-    &.next-page a:before {
-      background: transparent image-url("govuk-component/arrow-right.svg") no-repeat 50% 50%;
-      margin-right: -32px;
+    &.next-page .icon {
+      margin-right: -30px;
       float: right;
     }
 
-    &.previous-page a:before {
-      background: transparent image-url("govuk-component/arrow-left.svg") no-repeat 50% 50%;
-      margin-left: -32px;
+    &.previous-page .icon {
+      margin-left: -30px;
       float: left;
     }
 
@@ -83,6 +77,10 @@
       &.next-page {
         float: none;
         width: 100%;
+
+        .icon {
+          margin-top: 3px;
+        }
       }
 
       &.next-page a {
