@@ -8,6 +8,8 @@ Static::Application.routes.draw do
     get "/templates/:template.html.erb" => :template
   end
 
+  get "/govuk-components/*base_path", to: 'govuk_components#show'
+
   # Icon redirects
   get "/favicon.ico", to: "icon_redirects#show"
   get "/apple-touch-icon.png", to: "icon_redirects#show"

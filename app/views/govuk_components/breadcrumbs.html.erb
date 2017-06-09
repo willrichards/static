@@ -1,0 +1,31 @@
+<div
+  class="govuk-breadcrumbs <%= collapse_on_mobile_css_class %>"
+  data-module="track-click">
+  <ol>
+  <% breadcrumbs.each_with_index do |crumb, index| %>
+    <li class='<%= "parent-breadcrumb" if crumb.is_page_parent %>'>
+      <% if crumb.is_link? %>
+        <%= link_to(
+          crumb.title,
+          crumb.path,
+          data: {
+            track_category: 'breadcrumbClicked',
+            track_action: index + 1,
+            track_label: crumb.path,
+            track_options: {
+              dimension28: breadcrumbs.length.to_s,
+              dimension29: crumb.title
+            }
+          },
+          class: crumb.css_class,
+          aria: {
+            current: crumb.aria_current,
+          }
+        ) %>
+      <% else %>
+        <%= crumb.title %>
+      <% end %>
+    </li>
+  <% end %>
+  </ol>
+</div>

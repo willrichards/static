@@ -49,3 +49,4 @@ else
   gem 'govuk_template', '0.22.2'
 end
 gem 'gds-api-adapters', '41.2.0'
+gem 'govuk_schemas'
