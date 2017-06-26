@@ -13,13 +13,14 @@ private
   end
 
   def content_item
-    ContentItem.find_and_initialize(base_path)
+    @content_item ||= ContentItem.find_and_initialize(base_path)
   end
 
   def components
     {
       base_path: base_path,
-      breadcrumbs: BreadcrumbRenderer.render(content_item)
+      breadcrumbs: BreadcrumbRenderer.render(content_item),
+      taxonomy_breadcrumbs: TaxonomyBreadcrumbRenderer.render(content_item)
     }
   end
 end
