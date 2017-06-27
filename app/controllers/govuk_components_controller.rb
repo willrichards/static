@@ -20,7 +20,8 @@ private
     {
       base_path: base_path,
       breadcrumbs: BreadcrumbRenderer.render(content_item),
-      taxonomy_breadcrumbs: TaxonomyBreadcrumbRenderer.render(content_item)
+      taxonomy_breadcrumbs: TaxonomyBreadcrumbRenderer.render(content_item),
+      analytics_metatags: AnalyticsMetatagsRenderer.render(content_item),
     }
   end
 end

@@ -38,26 +38,34 @@ class ContentItem
     end
   end
 
-  def title
-    content_store_response.fetch("title")
-  end
-
-  def base_path
-    content_store_response.fetch("base_path")
-  end
-
-  def description
-    content_store_response.fetch("description", "")
-  end
-
-  def content_id
-    content_store_response.fetch("content_id")
+  [
+    :content_id,
+    :title,
+    :base_path,
+    :document_type,
+    :schema_name,
+    :description,
+    :user_journey_document_supertype,
+    :navigation_document_supertype,
+    :public_updated_at,
+  ].each do |method_name|
+    define_method method_name do
+      content_store_response.dig(method_name.to_s)
+    end
   end
 
   def related_links
     content_store_response.dig("links", "ordered_related_items").to_a.map do |link|
       ContentItem.new(link)
     end
+  end
+
+  def links
+    content_store_response.dig('links')
+  end
+
+  def details
+    content_store_response.dig('details')
   end
 
   def external_links
